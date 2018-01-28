@@ -7,6 +7,10 @@
 - 前端框架：[Semantic UI](http://www.semantic-ui.cn/)
 - 开发工具：Sublime Text
 
+![Django_admin01.png](https://github.com/FatliTalk/Django_Demo01/blob/master/pagesPictures/Django_admin01.png?raw=true)
+
+<br>
+
 ## 一、用 Get 方法实现文章分类功能
 ### Django 的 MVT 模式
 1. Model 层：需要多少数据字段？
@@ -18,6 +22,12 @@ T - M - V - U - T  （记忆技巧：Time Will Tell）
 
 看到数据的网页Template层 - Model模型层操作数据 - View层写视图（页面）逻辑 - Url分配地址 - 微调 Template层细节逻辑（如添加字数过滤器）
 
+<br>
+
+![文章标签分类-Get方法.png](https://github.com/FatliTalk/Django_Demo01/blob/master/pagesPictures/%E6%96%87%E7%AB%A0%E6%A0%87%E7%AD%BE%E5%88%86%E7%B1%BB-Get%E6%96%B9%E6%B3%95.png?raw=true)
+
+<br>
+<br>
 
 ## 二、用 Post 方法实现 Django 表单
 1. 渲染表单（通过引入Django的form模块渲染成表单样式）
@@ -32,3 +42,7 @@ T - M - V - U - T  （记忆技巧：Time Will Tell）
 表单数据储存：
 1. 绑定表单后，使用is_valid()方法判断绑定到表单的数据是否通过校验
 2. 使用save()方法储存数据（具体见views.py代码注释）
+
+<br>
+
+![文章评论页-Post方法.png](https://github.com/FatliTalk/Django_Demo01/blob/master/pagesPictures/%E6%96%87%E7%AB%A0%E8%AF%84%E8%AE%BA%E9%A1%B5-Post%E6%96%B9%E6%B3%95.png?raw=true)
