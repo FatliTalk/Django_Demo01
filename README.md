@@ -15,7 +15,9 @@
 
 ### 客户端与服务器之间的数据交互过程理解：
 T - M - V - U - T  （记忆技巧：Time Will Tell）
+
 看到数据的网页Template层 - Model模型层操作数据 - View层写视图（页面）逻辑 - Url分配地址 - 微调 Template层细节逻辑（如添加字数过滤器）
+
 
 ## 二、用 Post 方法实现 Django 表单
 1. 渲染表单（通过引入Django的form模块渲染成表单样式）
