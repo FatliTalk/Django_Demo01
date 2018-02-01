@@ -7,6 +7,8 @@
 - 前端框架：[Semantic UI](http://www.semantic-ui.cn/)
 - 开发工具：Sublime Text
 
+---
+
 ![Django_admin01.png](https://github.com/FatliTalk/Django_Demo01/blob/master/pagesPictures/Django_admin01.png?raw=true)
 
 <br>
