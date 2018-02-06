@@ -85,7 +85,10 @@
             <!-- 模板标签 -->
             {% for article in article_list %}
                 <div class="ui container vertical segment">
-                    <a href="#">
+                    <!-- 使用模板标签获取a标签的url地址。
+                        跳转页面的url为：当前url（此处为http://127.0.0.1:8000）的detail页面+具体id（此处为文章对应页数） -->
+                    <!-- <a href="#"> -->
+                    <a href="{% url 'detail' article.id %}">
                         <h1 class="ui header">
                             <!-- 模板变量 -->
                             {{ article.headline }}
@@ -96,7 +99,10 @@
                     <p>
                         <!-- 模板过滤器 -->
                         {{ article.content|truncatewords:100 }}
-                        <a href="#">
+                        <!-- 使用模板标签获取a标签的url地址。
+                        跳转页面的url为：当前url（此处为http://127.0.0.1:8000）的detail页面+具体id（此处为文章对应页数） -->
+                        <!-- <a href="#"> -->
+                        <a href="{% url 'detail' article.id %}">
                             <i class="angle tiny double grey right icon">READMORE</i>
                         </a>
                     </p>

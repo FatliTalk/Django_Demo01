@@ -39,11 +39,15 @@
         </div>
         <div class="ui segment padded container">
             <h1>
-                Indonesia pointed at Christmas
+                <!-- 根据模板变量，自动获取文章标题 -->
+                <!-- Indonesia pointed at Christmas -->
+                {{ article.headline }}
             </h1>
             <p>
-                his is how happens:
-                The most sensible to haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha.
+                <!-- 根据模板变量，自动获取文章内容 -->
+                <!-- his is how happens:
+                The most sensible to haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha. -->
+                {{ article.content }}
             </p>
         </div>
 
@@ -51,11 +55,43 @@
         <div class="ui segment container" style="width: 700px;">
             <h3 class="ui header" style="font-family: 'Oswald', sans-serif;">Comments</h3>
             <div class="ui comments">
-                {% for comment in comment_list %}
+                
+                <!-- 添加最优评论 -->
+                {% if best_comment %}
+                    <!-- 最优评论图标 -->
+                    <div class="ui red left ribbon label">
+                        <i class="icon fire"></i>
+                        BEST
+                    </div>
+
+                    <div class="best comment">
+                        <div class="avater">
+                            <!-- 评论人头像 -->
+                            <img src="http://semantic-ui.com/images/avatar/small/matt.jpg" alt="" />
+                        </div>
+                        <div class="content">
+
+                            <a href="#" class="author">{{ best_comment.name }}</a>
+                            <div class="metadata">
+                                <div class="data">2 days ago</div>
+                            </div>
+
+                            <p class="text" style="font-family: 'Raleway', sans-serif;">
+                                {{ best_comment.comment }}
+                            </p>
+
+                        </div>
+                    </div>
+                    <!-- 分割线 -->
+                    <div class="ui divider"></div>
+                {% endif %}
+
+                <!-- for comment in comment_list -->
+                {% for comment in article.under_comments.all %}
                     <div class="comment">
                         <div class="avater">
                             <!-- 评论人头像 -->
-                            <img src="{% static 'http://semantic-ui.com/images/avatar/small/matt.jpg' %}" alt="" />
+                            <img src="http://semantic-ui.com/images/avatar/small/matt.jpg" alt="" />
                         </div>
                         <div class="content">
                             <a href="#" class="author">{{ comment.name }}</a>
@@ -72,10 +108,12 @@
                 
 
             </div>
-
+            <!-- 分割线 -->
             <div class="ui divider"></div>
 
-            <form class="ui tiny form" method="post">
+            <!-- <form class="ui tiny form" action="" method="post"> -->
+            <!-- 一图多表解决方法：文章视图和评论表单视图分离。把评论表视图action到name='comment'的url -->
+            <form class="ui tiny form" action="{% url 'comment' article.id %}" method="post">
                 <!-- <div class="field">
                     <label>name</label>
                     <input type="text" name="name" value="">
@@ -97,28 +135,3 @@
 
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
