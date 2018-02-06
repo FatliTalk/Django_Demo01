@@ -26,6 +26,6 @@ urlpatterns = [
     # "$"为正则表达，结束、到此为止的意思
     # 最后，回到视图层views.py添加参数page_num，告诉视图层页数参数是从urls.py传递过去的。
     url(r'^detail/(?P<page_num>\d+)$', detail, name='detail'), # 添加的代码(评论页面)
-	# 视图层views.py中实现了文章视图和评论表单视图分离，需要分配新的url给分离后的评论表单视图
-	url(r'^detail/(?P<page_num>\d+)/comment$', detail_comment, name='comment'),
+    # 视图层views.py中实现了文章视图和评论表单视图分离，需要分配新的url给分离后的评论表单视图
+    url(r'^detail/(?P<page_num>\d+)/comment$', detail_comment, name='comment'),
 ]
