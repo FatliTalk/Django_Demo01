@@ -161,6 +161,6 @@ def detail_comment(request, page_num):
 		# 跳出该循环，跳（重定向）到urls.py中定义的detail评论页面
 		# return redirect(to='detail')
 	else:
-	    return detail(request, page_num, error_form=form)
+		return detail(request, page_num, error_form=form)
 
 	return redirect(to='detail', page_num=page_num)
