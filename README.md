@@ -48,3 +48,45 @@ T - M - V - U - T  （记忆技巧：Time Will Tell）
 <br>
 
 ![文章评论页-Post方法.png](https://github.com/FatliTalk/Django_Demo01/blob/master/pagesPictures/%E6%96%87%E7%AB%A0%E8%AF%84%E8%AE%BA%E9%A1%B5-Post%E6%96%B9%E6%B3%95.png?raw=true)
+
+<br>
+
+## 三、用 URL 正则实现文章链接跳转
+
+### 不够多的URL怎么办？（自动设置URL文章页数）
+
+思路：在urls.py写URL的正则式，在视图层views.py获取，在模板层呈现
+
+- ^detail$：精确模式
+- 限定三位数字：例子 `/detail/(\d){3}`
+- 限定多位数：例子`/detail/(\d+)`
+
+
+
+![url自动获取页数01.png](https://github.com/FatliTalk/Django_Demo01/blob/master/pagesPictures/url%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E9%A1%B5%E6%95%B001.png?raw=true)
+
+![url自动获取页数02.png](https://github.com/FatliTalk/Django_Demo01/blob/master/pagesPictures/url%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E9%A1%B5%E6%95%B002.png?raw=true)
+
+<br>
+
+### 怎样让评论只属于一篇文章？（多对一关系）
+
+完成上述第二点的用 Post 方法实现 Django 表单（评论功能）， 原来的views.py中的`comment_list = Comment.objects.all()` 、 `context['comment_list'] = comment_list` 会让所有评论在所有文章下都会同样显示。
+
+需要改成多对一（Django没有一对多关系）关系：让多条评论只属于对应的一篇文章。
+
+> **关系：**关系数据库的威力体现在表之间的相互关联。 Django 提供了三种最常见的数据库关系：多对一（django.db.models.ForeignKey）、多对多（ManyToManyField）、一对一（OneToOneField），用法和其他 Field 字段类型一样：在模型中做为一个类属性包含进来。
+
+
+![文章评论页_多对一关系和best_comment.png](https://github.com/FatliTalk/Django_Demo01/blob/master/pagesPictures/%E6%96%87%E7%AB%A0%E8%AF%84%E8%AE%BA%E9%A1%B5_%E5%A4%9A%E5%AF%B9%E4%B8%80%E5%85%B3%E7%B3%BB%E5%92%8Cbest_comment.png?raw=true)
+
+<br>
+
+### 一图多表怎么办？（文章视图和评论表单视图分离）
+
+`def detail( ... ):`
+
+分离后：
+
+`def detail( ... ):` ➕ `def detail_comment( ... ):`
+
