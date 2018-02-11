@@ -8,8 +8,8 @@ def words_validator(comment):
 
 # 定义一个验证函数
 def comment_validator(comment):
-if 'fuck' in comment:
-    raise ValidationError('Do not use this word')
+    if 'fuck' in comment:
+        raise ValidationError('Do not use this word')
 
 
 # 创建表单类
