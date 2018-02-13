@@ -94,20 +94,21 @@ T - M - V - U - T  （记忆技巧：Time Will Tell）
 
 ---
 
-> 附：解决tab or space 的问题：
+<br>
+
+> 附：解决 tab or space 的问题：
 https://www.python.org/dev/peps/pep-0008/#tabs-or-spaces
 
 方法：
 1. 把原来的 tab 替换为 space ：在 Sublime Text 3 （此处使用的代码编辑器是 Sublime Text 3 ）中，find tab 全部替换为4个空格（原来 1 个 tab = 8 个 space ，并且 py 文件中 tab 和 space 共存造成混乱）
 
 2. 在 Sublime Text 3 中 Preferences -> Settings 配置
-
-  ```
-  {
-    // 显示空格
-    "draw_white_space": "all",
-    // 设置tab=4space（针对Python）
-    "tab_size": 4,
-    "translate_tabs_to_spaces": true,
-  }
-  ```
+    ```
+    {
+        // 显示空格
+        "draw_white_space": "all",
+        // 设置tab=4space（针对Python）
+        "tab_size": 4,
+        "translate_tabs_to_spaces": true,
+    }
+    ```
