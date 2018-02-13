@@ -5,7 +5,7 @@
 - Python3.6
 - Python框架：Django 1.11.7
 - 前端框架：[Semantic UI](http://www.semantic-ui.cn/)
-- 开发工具：Sublime Text
+- 开发工具：Sublime Text 3
 
 ---
 
@@ -90,3 +90,24 @@ T - M - V - U - T  （记忆技巧：Time Will Tell）
 
 `def detail( ... ):` ➕ `def detail_comment( ... ):`
 
+<br>
+
+---
+
+> 附：解决tab or space 的问题：
+https://www.python.org/dev/peps/pep-0008/#tabs-or-spaces
+
+方法：
+1. 把原来的 tab 替换为 space ：在 Sublime Text 3 （此处使用的代码编辑器是 Sublime Text 3 ）中，find tab 全部替换为4个空格（原来 1 个 tab = 8 个 space ，并且 py 文件中 tab 和 space 共存造成混乱）
+
+2. 在 Sublime Text 3 中 Preferences -> Settings 配置
+
+  ```
+  {
+    // 显示空格
+    "draw_white_space": "all",
+    // 设置tab=4space（针对Python）
+    "tab_size": 4,
+    "translate_tabs_to_spaces": true,
+  }
+  ```
